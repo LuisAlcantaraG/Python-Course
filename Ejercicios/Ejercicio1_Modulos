@@ -1,0 +1,28 @@
+# Operaciones basicas 
+
+def suma(a, b):
+    return a + b
+
+def resta(a, b):
+    return a - b
+
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    return a // b
+
+
+##########################
+
+
+import operaciones_basicas as ob
+
+def main():
+    print("La suma es:", ob.suma(8, 2))
+    print("La resta es:",ob.resta(8, 2))
+    print("La multiplicar es:",ob.multiplicar(8, 2))
+    print("La dividir es:",ob.dividir(8, 2))
+
+if __name__ == '__main__':
+    main()
