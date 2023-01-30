@@ -1,0 +1,14 @@
+with open('ejercicio1.txt', 'w') as archivo:
+    archivo.write("Hola\n")
+    archivo.write("Como estas?\n")
+    archivo.write("Mi nombre es Luis\n")
+    archivo.write("Soy de Mexico\n")
+    archivo.write("Y mi edad es 23 anios\n")
+
+with open('ejercicio1.txt', 'a') as archivo:
+    archivo.write("Me gusta el futbol\n")
+    archivo.write("No me gusta el chayote\n")
+
+with open('ejercicio1.txt', 'r') as archivo:
+    for linea in archivo:
+        print(linea, end = "")
