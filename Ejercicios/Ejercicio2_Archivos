@@ -1,0 +1,31 @@
+import pickle 
+class Vehiculo:
+    
+    marca = ""
+    cilindros = 0
+    puertas = 0
+    caballosf = 0
+
+    def __init__(self, marca, cilindros, puertas, caballosf) -> None:
+        self.marca = marca
+        self.cilindros = cilindros
+        self.puertas = puertas
+        self.caballosf = caballosf
+
+v1 = Vehiculo("Honda", 4, 5, 500)
+v2 = Vehiculo("Ford", 6, 5, 800)
+
+# creamos el archivo
+with open("vehiculo.bin", "wb") as archivo:
+    pickle.dump(v1, archivo)
+    pickle.dump(v2, archivo)
+
+# Cargamos el archivo
+with open("vehiculo.bin", "rb") as archivo:
+    honda = pickle.load(archivo)
+    ford = pickle.load(archivo)
+
+print(type(honda))
+print(honda.marca, "es de: ", honda.cilindros, "cilindros, tiene: ", honda.puertas, "puertas y su caballaje es de: ", honda.caballosf)
+print(type(ford))
+print(ford.marca, "es de: ", ford.cilindros, "cilindros, tiene: ", ford.puertas, "puertas y su caballaje es de: ", ford.caballosf)
