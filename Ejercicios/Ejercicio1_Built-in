@@ -1,0 +1,9 @@
+
+# Le pedimos a un usuario que mencione algunos paises
+ingresa = input("Menciona algunos paises y separalos por comas: ")
+
+# convertimos los datos ingresados en lista y lo separamos por comas cada cadena
+paises = ingresa.split(",")
+
+# Imprimimos la lista acomodando y verificando que no se repitan las cadenas ingresadas
+print(sorted(set(paises)))
