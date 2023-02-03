@@ -1,0 +1,30 @@
+import tkinter
+from tkinter import ttk
+
+ventana = tkinter.Tk()
+
+def muestra():
+    mostrar = "Seleccionaste la opcion " + str(opcion.get())
+    label_mostrar.configure(text=mostrar)
+
+def reiniciar():
+    opcion.set(None)          # Se reinicia la seleccion 
+    label_mostrar.configure(text="")    # Se reinicia el texto mostrado
+
+def salir():
+    ventana.quit()
+
+opcion = tkinter.StringVar()
+auto1 = ttk.Radiobutton(ventana, text="Honda", value=1, variable=opcion, command=muestra).pack()
+auto2 = ttk.Radiobutton(ventana, text="Ford", value=2, variable=opcion, command=muestra).pack()
+auto3 = ttk.Radiobutton(ventana, text="Chevrolet", value=3, variable=opcion, command=muestra).pack()
+auto4 = ttk.Radiobutton(ventana, text="Nissan", value=4, variable=opcion, command=muestra).pack()
+
+label_mostrar = ttk.Label(ventana)
+label_mostrar.pack()
+
+boton_reinicio = ttk.Button(ventana, text='reiniciar', command=reiniciar).pack()
+
+bt_salir = ttk.Button(ventana, text="Salir", command=salir).pack()
+
+ventana.mainloop()
