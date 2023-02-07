@@ -1,0 +1,41 @@
+# Importamos la librerias 
+import sqlite3
+
+def main():
+
+    añadir(1, "Luis", "Gomez")
+    añadir(2, "Jose", "Hernandez")
+    añadir(3, "Oscar", "Valdez")
+    añadir(4, "Dario", "Gomez")
+    añadir(5, "Axel", "Rodriguez")
+    añadir(6, "Pepe", "Mondragon")
+    añadir(7, "Arturo", "Azul")
+    añadir(8, "David", "Espinoza")
+
+
+#Añadir mas alumnos 
+def añadir(identificador, nombre, apellido):
+    conexion = sqlite3.connect('alumnos.db', isolation_level=None)
+    cursor = conexion.cursor()
+
+    inserta = f"INSERT INTO users(id, nombre, apellido) VALUES ('{identificador}','{nombre}','{apellido}')"
+    columna = cursor.execute(inserta)
+    print(type(columna))
+
+    cursor.close()
+    conexion.close()
+
+if __name__ == '__main__':
+    main()
+
+
+# Buscar alumnos por nombre
+conexion = sqlite3.connect('alumnos.db')
+cursor = conexion.cursor()
+
+busca_nombre = cursor.execute('SELECT * FROM users WHERE nombre = "Dario"')
+for busca in busca_nombre:
+    print(busca)
+
+cursor.close()
+conexion.close()
